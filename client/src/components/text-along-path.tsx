@@ -1,11 +1,17 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
+import {
+  useScroll,
+  useTransform,
+  motion,
+  type MotionValue,
+} from "framer-motion";
+import Image from "next/image";
 
 export default function TextAlongPath() {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const pathsRef = useRef<SVGTextPathElement[]>([]);
+  const pathsRef = useRef<(SVGTextPathElement | null)[]>([]);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end end"],
@@ -14,13 +20,16 @@ export default function TextAlongPath() {
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (e) => {
       pathsRef.current.forEach((path, i) => {
-        path.setAttribute("startOffset", `${-40 + i * 40 + e * 40}%`);
+        if (path) {
+          path.setAttribute("startOffset", -40 + i * 40 + e * 40 + "%");
+        }
       });
     });
-    return () => unsubscribe();
-  }, [scrollYProgress]);
 
-  const logosY = useTransform(scrollYProgress, [0, 1], [-700, 0]);
+    return () => {
+      unsubscribe?.();
+    };
+  }, [scrollYProgress]);
 
   return (
     <div ref={containerRef}>
@@ -40,33 +49,36 @@ export default function TextAlongPath() {
               startOffset={`${i * 40}%`}
               href="#curve"
             >
-              Curabitur mattis efficitur velit
+              Private crypto with auto yield
             </textPath>
           ))}
         </text>
       </svg>
-      <Logos y={logosY.get()} />
+      <Logos scrollProgress={scrollYProgress} />
     </div>
   );
 }
 
-function Logos({ y }: { y: number }) {
+const Logos = ({ scrollProgress }: { scrollProgress: MotionValue<number> }) => {
+  const y = useTransform(scrollProgress, [0, 1], [-700, 0]);
   return (
     <div className="h-[250px] bg-black overflow-hidden">
       <motion.div
         style={{ y }}
         className="h-full bg-black flex justify-center gap-10 items-center p-10"
       >
-        {[...Array(5)].map((_, i) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            key={`img_${i}`}
+      
+          <Image
+            width={80}
+            height={80}
+            key={`Unwallet Logo`}
             className="w-[80px] h-[80px]"
-            src={`/medias/${i + 1}.jpg`}
-            alt="logo"
+            src={`/unwallet-dark-logo.svg`}
+            alt={`Unwallet Logo`}
           />
-        ))}
+          <p className="text-white text-6xl font-bold font-mono">One Wallet</p>
+
       </motion.div>
     </div>
   );
-}
+};

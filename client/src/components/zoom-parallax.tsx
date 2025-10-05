@@ -18,13 +18,13 @@ export default function ZoomParallax() {
   const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
 
   const pictures = [
-    { src: "/images/1.jpeg", scale: scale4 },
-    { src: "/images/2.jpeg", scale: scale5 },
-    { src: "/images/3.jpg", scale: scale6 },
-    { src: "/images/4.jpg", scale: scale5 },
-    { src: "/images/5.jpg", scale: scale6 },
-    { src: "/images/6.jpg", scale: scale8 },
-    { src: "/images/7.jpeg", scale: scale9 },
+    { src: "/images/1.png", scale: scale4 },
+    { src: "/images/2.png", scale: scale5 },
+    { src: "/images/3.png", scale: scale6 },
+    { src: "/images/4.png", scale: scale5 },
+    { src: "/images/5.png", scale: scale6 },
+    // { src: "/images/6.jpg", scale: scale8 },
+    // { src: "/images/7.jpeg", scale: scale9 },
   ];
 
   return (
@@ -73,3 +73,5 @@ export default function ZoomParallax() {
     </div>
   );
 }
+
+

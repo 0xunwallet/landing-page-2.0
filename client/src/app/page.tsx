@@ -4,8 +4,8 @@ import Lenis from "lenis";
 import Intro from "@/components/intro";
 import Description from "@/components/description";
 import Section from "@/components/section";
-import ZoomParallax from "@/components/zoom-parallax";
 import TextAlongPath from "@/components/text-along-path";
+import CardsParallax from "@/components/cards-parallax";
 
 export default function Page() {
   useEffect(() => {
@@ -24,9 +24,9 @@ export default function Page() {
       <Intro />
       <Description />
       <Section />
-      <Description />
-      <ZoomParallax />
+      <CardsParallax />
       <TextAlongPath />
+      {/* <div className="h-screen"></div> */}
     </main>
   );
 }
