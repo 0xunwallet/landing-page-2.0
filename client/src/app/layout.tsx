@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
+import MagneticButton from "@/components/magnetic-button";
 
 const departureMono = localFont({
   src: "./fonts/DepartureMono-Regular.woff2",
@@ -26,11 +27,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
         className={`${poppins.className} ${departureMono.variable} antialiased`}
         suppressHydrationWarning
       >
+        <MagneticButton />
         {children}
       </body>
     </html>
