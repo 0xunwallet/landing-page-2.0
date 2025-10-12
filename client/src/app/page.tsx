@@ -22,8 +22,8 @@ export default function Page() {
   return (
     <main>
       <Intro />
-      <Description />
       <Section />
+      <Description />
       <CardsParallax />
       <TextAlongPath />
       {/* <div className="h-screen"></div> */}

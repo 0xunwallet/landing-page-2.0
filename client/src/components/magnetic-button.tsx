@@ -122,8 +122,8 @@ export default function MagneticButton() {
   };
 
   const buttonClasses = isDark
-    ? "relative inline-flex items-center justify-center px-6 py-3 rounded-full bg-black border border-white/20 text-white text-sm font-mono tracking-wider transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
-    : "relative inline-flex items-center justify-center px-6 py-3 rounded-full bg-white border text-black text-sm font-mono tracking-wider transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]";
+    ? "relative inline-flex items-center justify-center px-6 py-3  bg-black border border-white/20 text-white text-sm font-mono tracking-wider transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
+    : "relative inline-flex items-center justify-center px-6 py-3  bg-white border text-black text-sm font-mono tracking-wider transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]";
 
   if (!mounted) {
     return (
