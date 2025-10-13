@@ -6,6 +6,7 @@ import Description from "@/components/description";
 import Section from "@/components/section";
 import TextAlongPath from "@/components/text-along-path";
 import CardsParallax from "@/components/cards-parallax";
+import ZoomParallax from "@/components/zoom-parallax";
 
 export default function Page() {
   useEffect(() => {

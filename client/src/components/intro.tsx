@@ -49,7 +49,7 @@ export default function Intro() {
               </p>
               <p className="w-full text-center">
                 Wallets that can do anything, and everything.
-              </p> 
+              </p>
             </motion.div>
           </div>
         </motion.div>

@@ -33,7 +33,7 @@ export default function TextAlongPath() {
 
   return (
     <div ref={containerRef}>
-      <svg className="w-full mb-40" viewBox="0 0 250 90">
+      {/* <svg className="w-full mb-40" viewBox="0 0 250 90">
         <path
           fill="none"
           id="curve"
@@ -53,7 +53,7 @@ export default function TextAlongPath() {
             </textPath>
           ))}
         </text>
-      </svg>
+      </svg> */}
       <Logos scrollProgress={scrollYProgress} />
     </div>
   );

@@ -77,7 +77,7 @@ function Card({
   return (
     <div
       ref={containerRef}
-      className="h-[85vh] sticky top-60 flex items-center justify-start pl-20"
+      className="h-[100vh] sticky top-40 flex items-center justify-end pr-20"
     >
       <motion.div
         style={{
@@ -86,17 +86,24 @@ function Card({
           zIndex: projects.length - i,
           transformOrigin: "top center",
         }}
-        className="relative w-[30vw] rounded-none p-0 h-[700px]"
+        className="relative w-[40vw] rounded-none p-0 h-[700px]"
       >
         <motion.div
           style={{ rotate }}
-          className="w-full h-full bg-foreground flex flex-col justify-between p-12"
+          className="w-full h-full bg-foreground flex flex-col justify-between p-12 rounded-[2rem]"
         >
           {/* Top section */}
           <div className="flex items-start justify-between">
             <span className="text-[120px] font-light leading-none text-muted-foreground">
               {number}
             </span>
+            <a
+              href={url}
+              target="_blank"
+              className="text-sm tracking-wider uppercase transition-opacity hover:opacity-50 text-muted-foreground"
+            >
+              View
+            </a>
           </div>
 
           {/* Bottom section */}
@@ -114,7 +121,7 @@ function Card({
   );
 }
 
-export default function CardsParallax() {
+export default function CardsWithParallax() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const imageContainerRef = useRef<HTMLDivElement | null>(null);
 
@@ -137,13 +144,12 @@ export default function CardsParallax() {
 
   return (
     <div className="relative">
-      {/* Image Parallax Section with Cards Stacked On Top */}
+      {/* Image Parallax Section - No Text Overlay */}
       <div
         ref={imageContainerRef}
-        className="relative flex items-center justify-center h-[600vh]"
+        className="relative flex items-center justify-center h-screen overflow-hidden"
         style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
       >
-        {/* Background Image */}
         <div className="fixed top-[-10vh] left-0 h-[120vh] w-full">
           <motion.div style={{ y }} className="relative w-full h-full">
             <Image
@@ -154,27 +160,25 @@ export default function CardsParallax() {
             />
           </motion.div>
         </div>
-
-        {/* Cards Stacked On Top of Image (sticky needs non-overflow ancestor) */}
-        <main
-          ref={containerRef}
-          className="absolute inset-0 z-10 mt-[50vh] pb-[40vh]"
-        >
-          {projects.map((project, i) => (
-            <Card
-              key={`p_${i}`}
-              i={i}
-              title={project.title}
-              description={project.description}
-              url={project.link}
-              number={project.number}
-              progress={scrollYProgress}
-              range={[i * 0.25, 1]}
-              targetScale={targetScales[i]}
-            />
-          ))}
-        </main>
       </div>
+
+      {/* Cards Section */}
+      <main ref={containerRef} className="mt-[50vh] pb-[40vh] relative">
+        {projects.map((project, i) => (
+          <Card
+            key={`p_${i}`}
+            i={i}
+            title={project.title}
+            description={project.description}
+            url={project.link}
+            number={project.number}
+            progress={scrollYProgress}
+            range={[i * 0.25, 1]}
+            targetScale={targetScales[i]}
+          />
+        ))}
+      </main>
     </div>
   );
 }
+
