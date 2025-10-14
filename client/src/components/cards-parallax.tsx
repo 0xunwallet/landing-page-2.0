@@ -94,7 +94,7 @@ function Card({
         >
           {/* Top section */}
           <div className="flex items-start justify-between">
-            <span className="text-[120px] font-light leading-none text-muted-foreground">
+            <span className="text-[120px] font-light leading-none text-muted-foreground font-mono">
               {number}
             </span>
           </div>
@@ -155,25 +155,61 @@ export default function CardsParallax() {
           </motion.div>
         </div>
 
-        {/* Cards Stacked On Top of Image (sticky needs non-overflow ancestor) */}
-        <main
-          ref={containerRef}
-          className="absolute inset-0 z-10 mt-[50vh] pb-[40vh]"
-        >
-          {projects.map((project, i) => (
-            <Card
-              key={`p_${i}`}
-              i={i}
-              title={project.title}
-              description={project.description}
-              url={project.link}
-              number={project.number}
-              progress={scrollYProgress}
-              range={[i * 0.25, 1]}
-              targetScale={targetScales[i]}
-            />
-          ))}
-        </main>
+        {/* Overlay layout: left sticky cards, right normal content */}
+        <div className="absolute inset-0 z-10 w-full h-full">
+          <div className="flex w-full h-full">
+            {/* Left column - cards (sticky inside each card) */}
+            <main ref={containerRef} className="w-[60vw] mt-[50vh] pb-[40vh]">
+              {projects.map((project, i) => (
+                <Card
+                  key={`p_${i}`}
+                  i={i}
+                  title={project.title}
+                  description={project.description}
+                  url={project.link}
+                  number={project.number}
+                  progress={scrollYProgress}
+                  range={[i * 0.25, 1]}
+                  targetScale={targetScales[i]}
+                />
+              ))}
+            </main>
+
+            {/* Right column - normal scrolling content (non-sticky) */}
+            <aside className="w-[40vw] mt-[50vh] pb-[40vh] pr-20">
+              <div className="space-y-0">
+                {[1, 2, 3, 4, 5].map((idx) => (
+                  <section
+                    key={idx}
+                    className="h-[85vh] flex items-start pt-60"
+                  >
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-light tracking-tight">
+                        Lorem Heading {idx}
+                      </h3>
+                      <p className="text-sm leading-7 opacity-80">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Integer at dui sed mauris venenatis convallis.
+                        Suspendisse potenti. Curabitur vitae sem et magna
+                        convallis tempus. Nulla facilisi. Phasellus at urna non
+                        nisi mollis viverra. Donec sit amet diam sed neque
+                        varius tempor. Sed dapibus, nibh a bibendum congue,
+                        ipsum leo gravida sapien, in maximus augue enim at
+                        augue.
+                      </p>
+                      <p className="text-sm leading-7 opacity-80">
+                        Quisque volutpat, mi non efficitur sollicitudin, urna
+                        velit pretium neque, non fringilla ligula nibh id
+                        lectus. Cras vitae urna id lectus egestas aliquet.
+                        Aliquam a nisl ac urna gravida tincidunt.
+                      </p>
+                    </div>
+                  </section>
+                ))}
+              </div>
+            </aside>
+          </div>
+        </div>
       </div>
     </div>
   );
