@@ -176,36 +176,128 @@ export default function CardsParallax() {
             </main>
 
             {/* Right column - normal scrolling content (non-sticky) */}
-            <aside className="w-[40vw] mt-[50vh] pb-[40vh] pr-20">
+            <aside className="w-[40vw] pt-[50vh] pb-[40vh] pr-20">
               <div className="space-y-0">
-                {[1, 2, 3, 4, 5].map((idx) => (
-                  <section
-                    key={idx}
-                    className="h-[85vh] flex items-start pt-60"
-                  >
-                    <div className="space-y-4">
-                      <h3 className="text-2xl font-light tracking-tight">
-                        Lorem Heading {idx}
-                      </h3>
-                      <p className="text-sm leading-7 opacity-80">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Integer at dui sed mauris venenatis convallis.
-                        Suspendisse potenti. Curabitur vitae sem et magna
-                        convallis tempus. Nulla facilisi. Phasellus at urna non
-                        nisi mollis viverra. Donec sit amet diam sed neque
-                        varius tempor. Sed dapibus, nibh a bibendum congue,
-                        ipsum leo gravida sapien, in maximus augue enim at
-                        augue.
-                      </p>
-                      <p className="text-sm leading-7 opacity-80">
-                        Quisque volutpat, mi non efficitur sollicitudin, urna
-                        velit pretium neque, non fringilla ligula nibh id
-                        lectus. Cras vitae urna id lectus egestas aliquet.
-                        Aliquam a nisl ac urna gravida tincidunt.
-                      </p>
-                    </div>
-                  </section>
-                ))}
+                <section
+                  className="h-[85vh] flex items-start justify-start"
+                  style={{ paddingTop: "12.5vh" }}
+                >
+                  <div className="space-y-4">
+                    <h3 className="text-2xl font-light tracking-tight">
+                      Complete Transaction Privacy
+                    </h3>
+                    <p className="text-sm leading-7 opacity-80">
+                      Unwallet implements ERC-5564 stealth addresses to ensure
+                      your on-chain activity remains unlinkable and
+                      confidential. Every transaction creates a unique, one-time
+                      address that protects your financial privacy while
+                      maintaining full compatibility with existing wallet
+                      infrastructure.
+                    </p>
+                    <p className="text-sm leading-7 opacity-80">
+                      Private keys are constructed and managed locally, never
+                      leaving your device. We use Eigen Compute only for
+                      verifiable stealth address generation, ensuring
+                      trust-minimized privacy without compromising security.
+                    </p>
+                  </div>
+                </section>
+
+                <section
+                  className="h-[85vh] flex items-start justify-start"
+                  style={{ paddingTop: "12.5vh" }}
+                >
+                  <div className="space-y-4">
+                    <h3 className="text-2xl font-light tracking-tight">
+                      Passive Income Made Simple
+                    </h3>
+                    <p className="text-sm leading-7 opacity-80">
+                      Your funds work for you automatically. Unwallet&apos;s modular
+                      architecture includes intelligent yield optimization
+                      modules that deploy your assets across the best DeFi
+                      protocols without any manual intervention.
+                    </p>
+                    <p className="text-sm leading-7 opacity-80">
+                      Set it and forget it. Our automated savings and
+                      revenue-sharing modules ensure your idle assets generate
+                      returns while you focus on what matters. All yield
+                      strategies are customizable and fully transparent.
+                    </p>
+                  </div>
+                </section>
+
+                <section
+                  className="h-[85vh] flex items-start justify-start"
+                  style={{ paddingTop: "12.5vh" }}
+                >
+                  <div className="space-y-4">
+                    <h3 className="text-2xl font-light tracking-tight">
+                      Built for Autonomous Agents
+                    </h3>
+                    <p className="text-sm leading-7 opacity-80">
+                      Unwallet is the first agent-first wallet SDK, designed
+                      from the ground up for AI agents to transact on-chain.
+                      With ERC-7579 and ERC-4337 smart account infrastructure,
+                      agents can execute complex operations with minimal gas
+                      overhead.
+                    </p>
+                    <p className="text-sm leading-7 opacity-80">
+                      Support for X402 and ERC-8004 standards enables
+                      HTTP-native payments and programmable agentic operations.
+                      Agents can batch transactions, manage multi-chain
+                      deployments, and interact with any DeFi protocol
+                      seamlessly.
+                    </p>
+                  </div>
+                </section>
+
+                <section
+                  className="h-[85vh] flex items-start justify-start"
+                  style={{ paddingTop: "12.5vh" }}
+                >
+                  <div className="space-y-4">
+                    <h3 className="text-2xl font-light tracking-tight">
+                      Privacy-First Commerce
+                    </h3>
+                    <p className="text-sm leading-7 opacity-80">
+                      Accept crypto payments while protecting your customers&apos;
+                      financial data. Unwallet&apos;s stealth address technology
+                      ensures every transaction is unlinkable, giving your
+                      customers the privacy they deserve without sacrificing
+                      functionality.
+                    </p>
+                    <p className="text-sm leading-7 opacity-80">
+                      Integrate seamlessly with existing payment flows. Our
+                      modular SDK provides 30+ customizable modules for token
+                      swapping, cross-chain settlements, and automated revenue
+                      management—all while maintaining complete transaction
+                      privacy.
+                    </p>
+                  </div>
+                </section>
+
+                <section
+                  className="h-[85vh] flex items-start justify-start"
+                  style={{ paddingTop: "12.5vh" }}
+                >
+                  <div className="space-y-4">
+                    <h3 className="text-2xl font-light tracking-tight">
+                      Instant, Feeless Settlement
+                    </h3>
+                    <p className="text-sm leading-7 opacity-80">
+                      The X402 protocol brings HTTP-native payments to the
+                      blockchain. Payments settle in seconds with zero fees,
+                      enabling micropayments and streaming money applications
+                      that were previously impossible.
+                    </p>
+                    <p className="text-sm leading-7 opacity-80">
+                      True chain and token abstraction means agents can store
+                      funds on any chain and spend them on another. Swap between
+                      any tokens seamlessly, with gas abstraction handled by
+                      hosted paymasters across all major chains.
+                    </p>
+                  </div>
+                </section>
               </div>
             </aside>
           </div>

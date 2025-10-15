@@ -16,9 +16,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "OneWallet",
+  title: "Unwallet",
   description:
-    "One wallet for payments on any chain — built for agents, merchants, and users.",
+    "Agentic wallets for payments on any chain — built for agents, merchants, and users.",
 };
 
 export default function RootLayout({
