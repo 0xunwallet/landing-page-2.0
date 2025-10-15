@@ -61,13 +61,13 @@ const projects: Project[] = [
     link: "https://docs.unwallet.io/",
     number: "07",
   },
-  {
-    title: "Composability",
-    description:
-      "Built for interoperability. Compatible with standards like x402, A2P, and ERC-8004, UnWallet works seamlessly with other modular infrastructures.",
-    link: "https://docs.unwallet.io/",
-    number: "08",
-  },
+  // {
+  //   title: "Composability",
+  //   description:
+  //     "Built for interoperability. Compatible with standards like x402, A2P, and ERC-8004, UnWallet works seamlessly with other modular infrastructures.",
+  //   link: "https://docs.unwallet.io/",
+  //   number: "08",
+  // },
 ];
 
 const rightSideContent = [
@@ -120,13 +120,13 @@ const rightSideContent = [
       "<mono>Stealth addresses</mono> and data are secured by Eigen Compute, providing cryptographic guarantees and transparent verification. Build with confidence knowing your operations are backed by <bold>verifiable, trustless infrastructure</bold>."
     ],
   },
-  {
-    title: "Composability",
-    paragraphs: [
-      "Built for interoperability. Compatible with standards like <mono>x402</mono>, <mono>A2P</mono>, and <mono>ERC-8004</mono>, UnWallet works seamlessly with other <italic>modular infrastructures</italic>.",
-      "Plug-and-play with existing agentic protocols and integrate with your current tech stack effortlessly. Our commitment to <bold>open standards</bold> means your investment in UnWallet grows more valuable as the ecosystem expands."
-    ],
-  },
+  // {
+  //   title: "Composability",
+  //   paragraphs: [
+  //     "Built for interoperability. Compatible with standards like <mono>x402</mono>, <mono>A2P</mono>, and <mono>ERC-8004</mono>, UnWallet works seamlessly with other <italic>modular infrastructures</italic>.",
+  //     "Plug-and-play with existing agentic protocols and integrate with your current tech stack effortlessly. Our commitment to <bold>open standards</bold> means your investment in UnWallet grows more valuable as the ecosystem expands."
+  //   ],
+  // },
 ];
 
 const FormatText = ({ text }: { text: string }) => {
@@ -242,7 +242,7 @@ export default function CardsParallax() {
       <div className="hidden md:block">
         <div
           ref={imageContainerRef}
-          className="relative flex items-center justify-center h-[800vh]"
+          className="relative flex items-center justify-center h-[690vh]"
           style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
         >
           {/* Background Image */}
