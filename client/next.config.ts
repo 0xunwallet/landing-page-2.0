@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
         hostname: 'avatars.githubusercontent.com',
       },
     ],
+    // unoptimized: true,
   },
   /* config options here */
   // disable image optimization

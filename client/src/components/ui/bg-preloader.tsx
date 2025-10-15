@@ -1,58 +1,45 @@
 "use client";
+import { useEffect, useState } from "react";
+import { AgenticLoader } from "./agentic-loader";
 
-import { useEffect, useState, type ReactNode } from "react";
-import { AgenticLoader } from "@/components/ui/agentic-loader";
-
-type BgPreloaderProps = {
-  children: ReactNode;
-};
-
-export function BgPreloader({ children }: BgPreloaderProps) {
+export function BgPreloader({ children }: { children: React.ReactNode }) {
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
-    const elementsWithBg =
-      document.querySelectorAll<HTMLElement>("[data-bg-image]");
-    let loadedCount = 0;
-    const totalImages = elementsWithBg.length;
+    const preloadImages = () => {
+      const elementsWithBg =
+        document.querySelectorAll<HTMLElement>("[data-bg-image]");
+      const urls = Array.from(elementsWithBg)
+        .map((el) => el.getAttribute("data-bg-image"))
+        .filter((url) => url !== null) as string[];
 
-    if (totalImages === 0) {
-      setImagesLoaded(true);
-      return;
-    }
-
-    const handleImageLoad = () => {
-      loadedCount += 1;
-      if (loadedCount === totalImages) {
+      if (urls.length === 0) {
+        // If there are no background images to preload, consider content ready.
         setImagesLoaded(true);
-      }
-    };
-
-    const imageElements: HTMLImageElement[] = [];
-    elementsWithBg.forEach((element) => {
-      const bgUrl = element.getAttribute("data-bg-image");
-      if (!bgUrl) {
-        handleImageLoad();
         return;
       }
-      const img = new Image();
-      img.onload = handleImageLoad;
-      img.onerror = handleImageLoad; // consider errored images as loaded to avoid blocking UI
-      img.src = bgUrl;
-      imageElements.push(img);
-    });
 
-    return () => {
-      // Best-effort cleanup
-      imageElements.forEach((img) => {
-        img.onload = null;
-        img.onerror = null;
+      let loadedCount = 0;
+
+      const handleLoad = () => {
+        loadedCount += 1;
+        if (loadedCount === urls.length) {
+          setImagesLoaded(true);
+        }
+      };
+
+      urls.forEach((url) => {
+        const img = new Image();
+        img.onload = handleLoad;
+        img.onerror = handleLoad;
+        img.src = url;
       });
     };
+
+    preloadImages();
   }, []);
 
   if (!imagesLoaded) {
-    // if (true) {
     return <AgenticLoader />;
   }
 
