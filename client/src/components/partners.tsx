@@ -11,8 +11,8 @@ type Partner = {
 const PARTNERS: Partner[] = [
   { name: "Ethereum Foundation", logoSrc: "/chains/ethereum.png" },
   { name: "Arbitrum Foundation", logoSrc: "/chains/arbitrum.png" },
-  { name: "Uniswap", logoSrc: "/protocols/uniswap.png" },
-  { name: "Aave", logoSrc: "/protocols/aave.png" },
+  { name: "Uniswap", logoSrc: "/images/bond.credit.png" },
+//   { name: "Aave", logoSrc: "/protocols/aave.png" },
 ];
 
 export default function Partners() {
@@ -33,19 +33,15 @@ export default function Partners() {
           {PARTNERS.map((partner, index) => (
             <div
               key={partner.name}
-              className="bg-white h-60 md:h-72 flex flex-col items-center justify-center group cursor-pointer relative"
+              className={`bg-white h-60 md:h-72 flex flex-col items-center justify-center group cursor-pointer relative ${index === 2 ? "col-span-2" : ""}`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <div
                 className="flex flex-col items-center gap-4 transition-transform duration-300"
-                style={{
-                  transform:
-                    hoveredIndex === index ? "scale(1.08)" : "scale(1)",
-                }}
               >
                 {/* Logo */}
-                <div className="relative h-16 w-24">
+                <div className={`relative h-16 w-28 ${index === 2 ? "h-64 w-64" : ""}`}>
                   <Image
                     src={partner.logoSrc}
                     alt={partner.name}
@@ -55,9 +51,11 @@ export default function Partners() {
                 </div>
 
                 {/* Name */}
-                <p className="text-sm font-medium text-gray-900 tracking-wide">
-                  {partner.name}
-                </p>
+                {index !== 2 && (
+                  <p className="text-sm font-medium text-gray-900 tracking-wide">
+                    {partner.name}
+                  </p>
+                )}
               </div>
 
               {/* Subtle background on hover */}
