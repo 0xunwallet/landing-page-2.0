@@ -52,7 +52,7 @@ export function BgPreloader({ children }: BgPreloaderProps) {
   }, []);
 
   if (!imagesLoaded) {
-  // if (true) {
+    // if (true) {
     return <AgenticLoader />;
   }
 

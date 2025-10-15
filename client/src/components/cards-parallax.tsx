@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import { useMemo, useRef } from "react";
 import Image from "next/image";
 
@@ -129,7 +129,7 @@ const rightSideContent = [
   },
 ];
 
-const FormatText = ({ text }) => {
+const FormatText = ({ text }: { text: string }) => {
   const parts = text.split(/(<bold>.*?<\/bold>|<italic>.*?<\/italic>|<mono>.*?<\/mono>)/g);
   
   return parts.map((part, i) => {
@@ -161,7 +161,7 @@ function Card({
   description: string;
   url: string;
   number: string;
-  progress: any;
+  progress: MotionValue<number>;
   range: [number, number];
   targetScale: number;
 }) {
