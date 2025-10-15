@@ -76,7 +76,7 @@ const Logos = ({ scrollProgress }: { scrollProgress: MotionValue<number> }) => {
             src={`/unwallet-dark-logo.svg`}
             alt={`Unwallet Logo`}
           />
-          <p className="text-white text-6xl font-bold font-mono">One Wallet</p>
+          <p className="text-white text-6xl font-bold font-mono">Unwallet</p>
 
       </motion.div>
     </div>

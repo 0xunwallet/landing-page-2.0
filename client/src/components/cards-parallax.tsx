@@ -204,9 +204,9 @@ function Card({
             <h2 className="text-[clamp(28px,6vw,56px)] font-light leading-tight mb-4 tracking-tight text-muted break-words font-mono">
               {title}
             </h2>
-            <p className="text-[clamp(11px,1.2vw,16px)] text-muted font-light leading-relaxed max-w-[90%]">
+            {/* <p className="text-[clamp(11px,1.2vw,16px)] text-muted font-light leading-relaxed max-w-[90%]">
               {description}
-            </p>
+            </p> */}
           </div>
         </motion.div>
       </motion.div>
