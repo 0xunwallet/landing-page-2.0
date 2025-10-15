@@ -44,7 +44,7 @@ export default function Intro() {
               {/* <span className="drop-shadow-[0_0_40px_rgba(255,255,255,0.8)]">
                 Agentic
               </span> */}
-              <p className="font-mono text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-white/70 drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]">
+              <p className="font-mono text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]">
                 Agentic Wallets
               </p>
               <p className="w-full text-center">

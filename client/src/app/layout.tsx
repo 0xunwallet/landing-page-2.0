@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
 import MagneticButton from "@/components/magnetic-button";
+import { BgPreloader } from "@/components/ui/bg-preloader";
 
 const departureMono = localFont({
   src: "./fonts/DepartureMono-Regular.woff2",
@@ -33,7 +34,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <MagneticButton />
-        {children}
+        <BgPreloader>{children}</BgPreloader>
       </body>
     </html>
   );
