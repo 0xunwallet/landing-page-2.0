@@ -46,6 +46,29 @@ const projects: Project[] = [
   },
 ];
 
+const mobileContent = [
+  {
+    title: "Complete Transaction Privacy",
+    description: "Unwallet implements ERC-5564 stealth addresses to ensure your on-chain activity remains unlinkable and confidential. Every transaction creates a unique, one-time address that protects your financial privacy while maintaining full compatibility with existing wallet infrastructure.",
+  },
+  {
+    title: "Passive Income Made Simple",
+    description: "Your funds work for you automatically. Unwallet's modular architecture includes intelligent yield optimization modules that deploy your assets across the best DeFi protocols without any manual intervention.",
+  },
+  {
+    title: "Built for Autonomous Agents",
+    description: "Unwallet is the first agent-first wallet SDK, designed from the ground up for AI agents to transact on-chain. With ERC-7579 and ERC-4337 smart account infrastructure, agents can execute complex operations with minimal gas overhead.",
+  },
+  {
+    title: "Privacy-First Commerce",
+    description: "Accept crypto payments while protecting your customers' financial data. Unwallet's stealth address technology ensures every transaction is unlinkable, giving your customers the privacy they deserve without sacrificing functionality.",
+  },
+  {
+    title: "Instant, Feeless Settlement",
+    description: "The X402 protocol brings HTTP-native payments to the blockchain. Payments settle in seconds with zero fees, enabling micropayments and streaming money applications that were previously impossible.",
+  },
+];
+
 function Card({
   i,
   title,
@@ -137,171 +160,190 @@ export default function CardsParallax() {
 
   return (
     <div className="relative">
-      {/* Image Parallax Section with Cards Stacked On Top */}
-      <div
-        ref={imageContainerRef}
-        className="relative flex items-center justify-center h-[600vh]"
-        style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
-      >
-        {/* Background Image */}
-        <div className="fixed top-[-10vh] left-0 h-[120vh] w-full">
-          <motion.div style={{ y }} className="relative w-full h-full">
-            <Image
-              src={"/images/1.png"}
-              fill
-              alt="image"
-              style={{ objectFit: "cover" }}
-            />
-          </motion.div>
-        </div>
+      {/* Desktop Version - Hidden on Mobile */}
+      <div className="hidden md:block">
+        <div
+          ref={imageContainerRef}
+          className="relative flex items-center justify-center h-[600vh]"
+          style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+        >
+          {/* Background Image */}
+          <div className="fixed top-[-10vh] left-0 h-[120vh] w-full">
+            <motion.div style={{ y }} className="relative w-full h-full">
+              <Image
+                src={"/images/1.png"}
+                fill
+                alt="image"
+                style={{ objectFit: "cover" }}
+              />
+            </motion.div>
+          </div>
 
-        {/* Overlay layout: left sticky cards, right normal content */}
-        <div className="absolute inset-0 z-10 w-full h-full">
-          <div className="flex w-full h-full">
-            {/* Left column - cards (sticky inside each card) */}
-            <main ref={containerRef} className="w-[60vw] mt-[50vh] pb-[40vh]">
-              {projects.map((project, i) => (
-                <Card
-                  key={`p_${i}`}
-                  i={i}
-                  title={project.title}
-                  description={project.description}
-                  url={project.link}
-                  number={project.number}
-                  progress={scrollYProgress}
-                  range={[i * 0.25, 1]}
-                  targetScale={targetScales[i]}
-                />
-              ))}
-            </main>
+          {/* Overlay layout: left sticky cards, right normal content */}
+          <div className="absolute inset-0 z-10 w-full h-full">
+            <div className="flex w-full h-full">
+              {/* Left column - cards (sticky inside each card) */}
+              <main ref={containerRef} className="w-[60vw] mt-[50vh] pb-[40vh]">
+                {projects.map((project, i) => (
+                  <Card
+                    key={`p_${i}`}
+                    i={i}
+                    title={project.title}
+                    description={project.description}
+                    url={project.link}
+                    number={project.number}
+                    progress={scrollYProgress}
+                    range={[i * 0.25, 1]}
+                    targetScale={targetScales[i]}
+                  />
+                ))}
+              </main>
 
-            {/* Right column - normal scrolling content (non-sticky) */}
-            <aside className="w-[40vw] pt-[50vh] pb-[40vh] pr-20">
-              <div className="space-y-0">
-                <section
-                  className="h-[85vh] flex items-start justify-start"
-                  style={{ paddingTop: "12.5vh" }}
-                >
-                  <div className="space-y-4">
-                    <h3 className="text-2xl font-light tracking-tight">
-                      Complete Transaction Privacy
-                    </h3>
-                    <p className="text-sm leading-7 opacity-80">
-                      Unwallet implements ERC-5564 stealth addresses to ensure
-                      your on-chain activity remains unlinkable and
-                      confidential. Every transaction creates a unique, one-time
-                      address that protects your financial privacy while
-                      maintaining full compatibility with existing wallet
-                      infrastructure.
-                    </p>
-                    <p className="text-sm leading-7 opacity-80">
-                      Private keys are constructed and managed locally, never
-                      leaving your device. We use Eigen Compute only for
-                      verifiable stealth address generation, ensuring
-                      trust-minimized privacy without compromising security.
-                    </p>
-                  </div>
-                </section>
+              {/* Right column - normal scrolling content (non-sticky) */}
+              <aside className="w-[40vw] pt-[50vh] pb-[40vh] pr-20">
+                <div className="space-y-0">
+                  <section
+                    className="h-[85vh] flex items-start justify-start"
+                    style={{ paddingTop: "12.5vh" }}
+                  >
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-light tracking-tight">
+                        Complete Transaction Privacy
+                      </h3>
+                      <p className="text-sm leading-7 opacity-80">
+                        Unwallet implements ERC-5564 stealth addresses to ensure
+                        your on-chain activity remains unlinkable and
+                        confidential. Every transaction creates a unique, one-time
+                        address that protects your financial privacy while
+                        maintaining full compatibility with existing wallet
+                        infrastructure.
+                      </p>
+                      <p className="text-sm leading-7 opacity-80">
+                        Private keys are constructed and managed locally, never
+                        leaving your device. We use Eigen Compute only for
+                        verifiable stealth address generation, ensuring
+                        trust-minimized privacy without compromising security.
+                      </p>
+                    </div>
+                  </section>
 
-                <section
-                  className="h-[85vh] flex items-start justify-start"
-                  style={{ paddingTop: "12.5vh" }}
-                >
-                  <div className="space-y-4">
-                    <h3 className="text-2xl font-light tracking-tight">
-                      Passive Income Made Simple
-                    </h3>
-                    <p className="text-sm leading-7 opacity-80">
-                      Your funds work for you automatically. Unwallet&apos;s modular
-                      architecture includes intelligent yield optimization
-                      modules that deploy your assets across the best DeFi
-                      protocols without any manual intervention.
-                    </p>
-                    <p className="text-sm leading-7 opacity-80">
-                      Set it and forget it. Our automated savings and
-                      revenue-sharing modules ensure your idle assets generate
-                      returns while you focus on what matters. All yield
-                      strategies are customizable and fully transparent.
-                    </p>
-                  </div>
-                </section>
+                  <section
+                    className="h-[85vh] flex items-start justify-start"
+                    style={{ paddingTop: "12.5vh" }}
+                  >
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-light tracking-tight">
+                        Passive Income Made Simple
+                      </h3>
+                      <p className="text-sm leading-7 opacity-80">
+                        Your funds work for you automatically. Unwallet&apos;s modular
+                        architecture includes intelligent yield optimization
+                        modules that deploy your assets across the best DeFi
+                        protocols without any manual intervention.
+                      </p>
+                      <p className="text-sm leading-7 opacity-80">
+                        Set it and forget it. Our automated savings and
+                        revenue-sharing modules ensure your idle assets generate
+                        returns while you focus on what matters. All yield
+                        strategies are customizable and fully transparent.
+                      </p>
+                    </div>
+                  </section>
 
-                <section
-                  className="h-[85vh] flex items-start justify-start"
-                  style={{ paddingTop: "12.5vh" }}
-                >
-                  <div className="space-y-4">
-                    <h3 className="text-2xl font-light tracking-tight">
-                      Built for Autonomous Agents
-                    </h3>
-                    <p className="text-sm leading-7 opacity-80">
-                      Unwallet is the first agent-first wallet SDK, designed
-                      from the ground up for AI agents to transact on-chain.
-                      With ERC-7579 and ERC-4337 smart account infrastructure,
-                      agents can execute complex operations with minimal gas
-                      overhead.
-                    </p>
-                    <p className="text-sm leading-7 opacity-80">
-                      Support for X402 and ERC-8004 standards enables
-                      HTTP-native payments and programmable agentic operations.
-                      Agents can batch transactions, manage multi-chain
-                      deployments, and interact with any DeFi protocol
-                      seamlessly.
-                    </p>
-                  </div>
-                </section>
+                  <section
+                    className="h-[85vh] flex items-start justify-start"
+                    style={{ paddingTop: "12.5vh" }}
+                  >
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-light tracking-tight">
+                        Built for Autonomous Agents
+                      </h3>
+                      <p className="text-sm leading-7 opacity-80">
+                        Unwallet is the first agent-first wallet SDK, designed
+                        from the ground up for AI agents to transact on-chain.
+                        With ERC-7579 and ERC-4337 smart account infrastructure,
+                        agents can execute complex operations with minimal gas
+                        overhead.
+                      </p>
+                      <p className="text-sm leading-7 opacity-80">
+                        Support for X402 and ERC-8004 standards enables
+                        HTTP-native payments and programmable agentic operations.
+                        Agents can batch transactions, manage multi-chain
+                        deployments, and interact with any DeFi protocol
+                        seamlessly.
+                      </p>
+                    </div>
+                  </section>
 
-                <section
-                  className="h-[85vh] flex items-start justify-start"
-                  style={{ paddingTop: "12.5vh" }}
-                >
-                  <div className="space-y-4">
-                    <h3 className="text-2xl font-light tracking-tight">
-                      Privacy-First Commerce
-                    </h3>
-                    <p className="text-sm leading-7 opacity-80">
-                      Accept crypto payments while protecting your customers&apos;
-                      financial data. Unwallet&apos;s stealth address technology
-                      ensures every transaction is unlinkable, giving your
-                      customers the privacy they deserve without sacrificing
-                      functionality.
-                    </p>
-                    <p className="text-sm leading-7 opacity-80">
-                      Integrate seamlessly with existing payment flows. Our
-                      modular SDK provides 30+ customizable modules for token
-                      swapping, cross-chain settlements, and automated revenue
-                      management—all while maintaining complete transaction
-                      privacy.
-                    </p>
-                  </div>
-                </section>
+                  <section
+                    className="h-[85vh] flex items-start justify-start"
+                    style={{ paddingTop: "12.5vh" }}
+                  >
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-light tracking-tight">
+                        Privacy-First Commerce
+                      </h3>
+                      <p className="text-sm leading-7 opacity-80">
+                        Accept crypto payments while protecting your customers&apos;
+                        financial data. Unwallet&apos;s stealth address technology
+                        ensures every transaction is unlinkable, giving your
+                        customers the privacy they deserve without sacrificing
+                        functionality.
+                      </p>
+                      <p className="text-sm leading-7 opacity-80">
+                        Integrate seamlessly with existing payment flows. Our
+                        modular SDK provides 30+ customizable modules for token
+                        swapping, cross-chain settlements, and automated revenue
+                        management—all while maintaining complete transaction
+                        privacy.
+                      </p>
+                    </div>
+                  </section>
 
-                <section
-                  className="h-[85vh] flex items-start justify-start"
-                  style={{ paddingTop: "12.5vh" }}
-                >
-                  <div className="space-y-4">
-                    <h3 className="text-2xl font-light tracking-tight">
-                      Instant, Feeless Settlement
-                    </h3>
-                    <p className="text-sm leading-7 opacity-80">
-                      The X402 protocol brings HTTP-native payments to the
-                      blockchain. Payments settle in seconds with zero fees,
-                      enabling micropayments and streaming money applications
-                      that were previously impossible.
-                    </p>
-                    <p className="text-sm leading-7 opacity-80">
-                      True chain and token abstraction means agents can store
-                      funds on any chain and spend them on another. Swap between
-                      any tokens seamlessly, with gas abstraction handled by
-                      hosted paymasters across all major chains.
-                    </p>
-                  </div>
-                </section>
-              </div>
-            </aside>
+                  <section
+                    className="h-[85vh] flex items-start justify-start"
+                    style={{ paddingTop: "12.5vh" }}
+                  >
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-light tracking-tight">
+                        Instant, Feeless Settlement
+                      </h3>
+                      <p className="text-sm leading-7 opacity-80">
+                        The X402 protocol brings HTTP-native payments to the
+                        blockchain. Payments settle in seconds with zero fees,
+                        enabling micropayments and streaming money applications
+                        that were previously impossible.
+                      </p>
+                      <p className="text-sm leading-7 opacity-80">
+                        True chain and token abstraction means agents can store
+                        funds on any chain and spend them on another. Swap between
+                        any tokens seamlessly, with gas abstraction handled by
+                        hosted paymasters across all major chains.
+                      </p>
+                    </div>
+                  </section>
+                </div>
+              </aside>
+            </div>
           </div>
         </div>
+      </div>
+
+      {/* Mobile Version - Simple Content */}
+      <div className="block md:hidden px-6 py-12 space-y-12">
+        {mobileContent.map((content, i) => (
+          <div key={i} className="space-y-4">
+            <span className="text-4xl font-light leading-none text-muted-foreground font-mono">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <h2 className="text-3xl font-light leading-tight tracking-tight">
+              {content.title}
+            </h2>
+            <p className="text-base leading-relaxed opacity-80">
+              {content.description}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );
