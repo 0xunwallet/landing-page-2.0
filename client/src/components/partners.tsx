@@ -23,7 +23,7 @@ export default function Partners() {
       <div className="max-w-5xl w-full">
         {/* Header */}
         <div className="mb-20">
-          <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-4 font-medium">
+          <p className="text-2xl uppercase tracking-[0.2em] mb-4 font-medium text-center">
             Trusted Partners
           </p>
         </div>
