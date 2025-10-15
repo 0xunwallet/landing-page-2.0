@@ -12,7 +12,7 @@ const PARTNERS: Partner[] = [
   { name: "Ethereum Foundation", logoSrc: "/chains/ethereum.png" },
   { name: "Arbitrum Foundation", logoSrc: "/chains/arbitrum.png" },
   { name: "Uniswap", logoSrc: "/protocols/uniswap.png" },
-  { name: "Aave", logoSrc: "/protocols/aave.png" }
+  { name: "Aave", logoSrc: "/protocols/aave.png" },
 ];
 
 export default function Partners() {
@@ -40,7 +40,8 @@ export default function Partners() {
               <div
                 className="flex flex-col items-center gap-4 transition-transform duration-300"
                 style={{
-                  transform: hoveredIndex === index ? "scale(1.08)" : "scale(1)"
+                  transform:
+                    hoveredIndex === index ? "scale(1.08)" : "scale(1)",
                 }}
               >
                 {/* Logo */}
@@ -52,7 +53,7 @@ export default function Partners() {
                     className="object-contain"
                   />
                 </div>
-                
+
                 {/* Name */}
                 <p className="text-sm font-medium text-gray-900 tracking-wide">
                   {partner.name}
@@ -63,7 +64,7 @@ export default function Partners() {
               <div
                 className="absolute inset-0 bg-gray-50 transition-opacity duration-300 -z-10"
                 style={{
-                  opacity: hoveredIndex === index ? 1 : 0
+                  opacity: hoveredIndex === index ? 1 : 0,
                 }}
               />
             </div>
