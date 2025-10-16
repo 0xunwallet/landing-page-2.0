@@ -8,6 +8,7 @@ type Partner = {
   name: string;
   logoSrc: string;
   websiteLink: string;
+  needsName: boolean;
 };
 
 const PARTNERS: Partner[] = [
@@ -15,26 +16,31 @@ const PARTNERS: Partner[] = [
     name: "Eigen Layer",
     logoSrc: "/images/eigen-layer.svg",
     websiteLink: "https://app.eigenlayer.xyz/",
+    needsName: true,
   },
   {
     name: "Ethereum Foundation",
     logoSrc: "/images/ethereum-foundation.svg",
     websiteLink: "https://ethereum.foundation/",
+    needsName: false,
+  },
+  {
+    name: "Arbitrum Foundation",
+    logoSrc: "/partners/arbitrum-foundation.svg",
+    websiteLink: "https://arbitrum.io/",
+    needsName: false,
   },
   {
     name: "Bond Credit",
     logoSrc: "/images/bond.credit.png",
     websiteLink: "https://bond.credit/",
-  },
-  {
-    name: "Arbitrum Foundation",
-    logoSrc: "/chains/arbitrum.png",
-    websiteLink: "https://arbitrum.io/",
+    needsName: false,
   },
   {
     name: "ZyFAI",
     logoSrc: "/images/zyfai.png",
     websiteLink: "https://www.zyf.ai/",
+    needsName: false,
   },
 
   //   { name: "Aave", logoSrc: "/protocols/aave.png" },
@@ -81,7 +87,7 @@ export default function Partners() {
                   {/* Logo */}
                   <div
                     className={`relative h-16 w-28 ${
-                      isColSpan2Needed ? "h-64 w-64" : ""
+                      !partner.needsName ? "h-64 w-64" : ""
                     }`}
                   >
                     <Image
@@ -93,7 +99,7 @@ export default function Partners() {
                   </div>
 
                   {/* Name */}
-                  {!isColSpan2Needed && (
+                  {partner.needsName && (
                     <p className="text-sm font-medium tracking-wide">
                       {partner.name}
                     </p>
