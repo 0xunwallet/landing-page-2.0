@@ -27,7 +27,7 @@ const PARTNERS: Partner[] = [
   {
     name: "Arbitrum Foundation",
     logoSrc: "/partners/arbitrum-foundation.svg",
-    websiteLink: "https://arbitrum.io/",
+    websiteLink: "https://arbitrum.foundation/",
     needsName: false,
   },
   {
