@@ -8,6 +8,9 @@ import {
   type MotionValue,
 } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { FaXTwitter } from "react-icons/fa6";
+import { HiDocumentText } from "react-icons/hi";
 
 export default function TextAlongPath() {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -62,23 +65,39 @@ export default function TextAlongPath() {
 const Logos = ({ scrollProgress }: { scrollProgress: MotionValue<number> }) => {
   const y = useTransform(scrollProgress, [0, 1], [-700, 0]);
   return (
-    <div className="h-[250px] bg-black overflow-hidden">
+    <div className="h-[250px] bg-black overflow-hidden relative">
       <motion.div
         style={{ y }}
         className="h-full bg-black flex justify-center gap-10 items-center p-10"
       >
-      
-          <Image
-            width={80}
-            height={80}
-            key={`Unwallet Logo`}
-            className="w-[80px] h-[80px]"
-            src={`/unwallet-dark-logo.svg`}
-            alt={`Unwallet Logo`}
-          />
-          <p className="text-white text-6xl font-bold font-mono">Unwallet</p>
-
+        <Image
+          width={80}
+          height={80}
+          key={`Unwallet Logo`}
+          className="w-[80px] h-[80px]"
+          src={`/unwallet-dark-logo.svg`}
+          alt={`Unwallet Logo`}
+        />
+        <p className="text-white text-6xl font-bold font-mono">Unwallet</p>
       </motion.div>
+      <Link
+        href="https://x.com/wall8_xyz"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute bottom-6 right-6 text-white font-mono hover:opacity-80 transition-all flex items-center gap-2"
+      >
+        <FaXTwitter className="text-white text-2xl md:text-xl" />
+        <span className="hidden md:inline text-xl">@wall8_xyz</span>
+      </Link>
+      <Link
+        href="https://docs.unwallet.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute bottom-6 left-6 text-white font-mono hover:opacity-80 transition-all flex items-center gap-2"
+      >
+        <HiDocumentText className="text-white text-2xl md:text-xl" />
+        <span className="hidden md:inline text-xl">docs.unwallet.com</span>
+      </Link>
     </div>
   );
 };
