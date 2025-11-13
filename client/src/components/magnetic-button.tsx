@@ -126,7 +126,7 @@ export default function MagneticButton() {
     : "relative inline-flex items-center justify-center px-6 py-3  bg-white border text-black text-sm font-mono tracking-wider transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]";
 
   const simpleButtonClasses =
-    "relative inline-flex items-center justify-center px-6 py-3 bg text-black text-sm font-mono tracking-wider transition-all duration-300 hover:opacity-80";
+    "relative inline-flex items-center justify-center px-6 py-3 text-black text-sm font-mono tracking-wider transition-all duration-300 hover:opacity-80";
 
   if (!mounted) {
     return (
