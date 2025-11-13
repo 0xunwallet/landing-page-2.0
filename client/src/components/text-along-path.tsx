@@ -90,13 +90,13 @@ const Logos = ({ scrollProgress }: { scrollProgress: MotionValue<number> }) => {
         <span className="hidden md:inline text-xl">@wall8_xyz</span>
       </Link>
       <Link
-        href="https://docs.unwallet.com"
+        href="https://docs.unwallet.io"
         target="_blank"
         rel="noopener noreferrer"
         className="absolute bottom-6 left-6 text-white font-mono hover:opacity-80 transition-all flex items-center gap-2"
       >
         <HiDocumentText className="text-white text-2xl md:text-xl" />
-        <span className="hidden md:inline text-xl">docs.unwallet.com</span>
+        <span className="hidden md:inline text-xl">docs.unwallet.io</span>
       </Link>
     </div>
   );
