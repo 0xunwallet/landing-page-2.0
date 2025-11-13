@@ -1,6 +1,5 @@
 {
   "buildCommand": "npm run build",
-  "installCommand": "npm ci && npm install --no-save --platform=linux --arch=x64 lightningcss-linux-x64-gnu",
+  "installCommand": "npm install && npm install --no-save lightningcss-linux-x64-gnu",
   "framework": "nextjs"
 }
-
