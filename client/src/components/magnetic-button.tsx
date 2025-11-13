@@ -133,7 +133,7 @@ export default function MagneticButton() {
       <div className="fixed top-10 right-10 z-[9999] flex gap-3">
         <div className="inline-block">
           <a href="https://demo.unwallet.io/" className={simpleButtonClasses}>
-            <span>View Demo</span>
+            <span>Demo</span>
           </a>
         </div>
         <div className="inline-block">
