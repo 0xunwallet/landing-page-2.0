@@ -15,46 +15,46 @@ export default function MagneticButton() {
     // Detect background color at button's position
     const detectBackgroundColor = () => {
       if (!ref.current) return;
-      
+
       const rect = ref.current.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
-      
+
       // Hide button temporarily
       const originalDisplay = ref.current.style.display;
-      ref.current.style.display = 'none';
-      
+      ref.current.style.display = "none";
+
       const elementBehind = document.elementFromPoint(centerX, centerY);
-      
+
       ref.current.style.display = originalDisplay;
-      
+
       if (!elementBehind) {
         return;
       }
-      
+
       let element: HTMLElement | null = elementBehind as HTMLElement;
-      let bgColor = '';
+      let bgColor = "";
       let depth = 0;
       const maxDepth = 20;
-      
+
       // Traverse up to find a background color
       while (element && depth < maxDepth) {
         const style = window.getComputedStyle(element);
         const bg = style.backgroundColor;
-        
-        if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') {
+
+        if (bg && bg !== "rgba(0, 0, 0, 0)" && bg !== "transparent") {
           bgColor = bg;
           break;
         }
         element = element.parentElement;
         depth++;
       }
-      
+
       if (!bgColor) {
         setIsDark(true);
         return;
       }
-      
+
       // Calculate luminance
       const rgb = bgColor.match(/\d+/g);
       if (rgb) {
@@ -67,39 +67,39 @@ export default function MagneticButton() {
 
     // Initial detection with delay to ensure DOM is ready
     const timer = setTimeout(detectBackgroundColor, 100);
-    
+
     // Update on scroll with throttle
     let scrollTimeout: NodeJS.Timeout;
     const handleScroll = () => {
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(detectBackgroundColor, 50);
     };
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', detectBackgroundColor, { passive: true });
-    
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", detectBackgroundColor, { passive: true });
+
     // Also watch for theme changes
     const observer = new MutationObserver(() => {
       setTimeout(detectBackgroundColor, 50);
     });
-    
+
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['class', 'style'],
+      attributeFilter: ["class", "style"],
       subtree: true,
     });
-    
+
     observer.observe(document.body, {
       attributes: true,
-      attributeFilter: ['class', 'style'],
+      attributeFilter: ["class", "style"],
       subtree: true,
     });
 
     return () => {
       clearTimeout(timer);
       clearTimeout(scrollTimeout);
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', detectBackgroundColor);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", detectBackgroundColor);
       observer.disconnect();
     };
   }, []);
@@ -125,9 +125,17 @@ export default function MagneticButton() {
     ? "relative inline-flex items-center justify-center px-6 py-3  bg-black border border-white/20 text-white text-sm font-mono tracking-wider transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
     : "relative inline-flex items-center justify-center px-6 py-3  bg-white border text-black text-sm font-mono tracking-wider transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]";
 
+  const simpleButtonClasses =
+    "relative inline-flex items-center justify-center px-6 py-3 bg text-black text-sm font-mono tracking-wider transition-all duration-300 hover:opacity-80";
+
   if (!mounted) {
     return (
-      <div className="fixed top-10 right-10 z-[9999]">
+      <div className="fixed top-10 right-10 z-[9999] flex gap-3">
+        <div className="inline-block">
+          <a href="https://demo.unwallet.io/" className={simpleButtonClasses}>
+            <span>View Demo</span>
+          </a>
+        </div>
         <div className="inline-block">
           <a href="https://app.unwallet.io" className={buttonClasses}>
             <span>Launch App</span>
@@ -138,7 +146,12 @@ export default function MagneticButton() {
   }
 
   return (
-    <div className="fixed top-10 right-10 z-[9999]">
+    <div className="fixed top-10 right-10 z-[9999] flex gap-3">
+      <div className="inline-block">
+        <a href="https://demo.unwallet.io/" className={simpleButtonClasses}>
+          <span>View Demo</span>
+        </a>
+      </div>
       <motion.div
         ref={ref}
         onMouseMove={handleMouse}
