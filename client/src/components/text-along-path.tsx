@@ -81,13 +81,13 @@ const Logos = ({ scrollProgress }: { scrollProgress: MotionValue<number> }) => {
         <p className="text-white text-6xl font-bold font-mono">Unwallet</p>
       </motion.div>
       <Link
-        href="https://x.com/wall8_xyz"
+        href="https://x.com/rheolly"
         target="_blank"
         rel="noopener noreferrer"
         className="absolute bottom-6 right-6 text-white font-mono hover:opacity-80 transition-all flex items-center gap-2"
       >
         <FaXTwitter className="text-white text-2xl md:text-xl" />
-        <span className="hidden md:inline text-xl">@wall8_xyz</span>
+        <span className="hidden md:inline text-xl">@rheolly</span>
       </Link>
       <Link
         href="https://docs.unwallet.io"

@@ -82,7 +82,7 @@ function TypingTextBasic({ isVisible }: { isVisible: boolean }) {
             pauseDuration={2000}
             loop={true}
           />
-          <span className="inline">.wall8.eth</span>
+          <span className="inline">.rheolly.eth</span>
         </>
       )}
     </div>
